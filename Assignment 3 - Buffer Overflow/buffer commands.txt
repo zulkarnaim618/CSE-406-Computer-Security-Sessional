@@ -1,0 +1,26 @@
+//connect and copy
+
+scp -i ./public_key.pem online.zip artushar@20.30.40.50:/home/artushar/Downloads
+ssh -i <identity_file_location> username@public_ip
+
+sudo sysctl -w kernel.randomize_va_space=0
+sudo ln -sf /bin/zsh /bin/sh
+
+gcc -m32 -o stack -z execstack -fno-stack-protector stack.c
+sudo chown root stack
+sudo chmod 4755 stack
+
+//debug
+
+gcc -m32 -z execstack -fno-stack-protector -g -o stack_dbg stack.c
+gdb stack_dbg
+
+b foo
+next
+stepi
+p $ebp
+p &buffer
+p /d 
+
+nano
+vim
